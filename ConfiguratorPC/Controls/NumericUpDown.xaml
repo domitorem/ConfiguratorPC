@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="ConfiguratorPC.Controls.NumericUpDown"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ConfiguratorPC.Controls"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="{Binding ElementName=NumTextBox, Path=Height}"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=NumTextBox, Path=FontSize}"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Background" Value="#FF00B3FF"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel Orientation="Horizontal">
+        <Button Content="-" x:Name="DecreaseButton" Click="DecreaseButton_Click" Background="CadetBlue"
+                BorderBrush="Gray">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10 0 0 10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBox x:Name="NumTextBox" Height="40" Width="25" FontSize="16" Text="1" TextAlignment="Center" VerticalContentAlignment="Center" IsHitTestVisible="False" Background="#FF2C2C2E" Foreground="White"
+                 BorderBrush="Gray"/>
+        <Button Content="+" x:Name="IncreaseButton" Click="IncreaseButton_Click" Background="CadetBlue"
+                BorderBrush="Gray">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="0 10 10 0"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </StackPanel>
+</UserControl>

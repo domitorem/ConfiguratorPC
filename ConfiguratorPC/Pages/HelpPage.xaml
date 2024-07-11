@@ -1,0 +1,133 @@
+﻿<Page x:Class="ConfiguratorPC.Pages.HelpPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ConfiguratorPC.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HelpPage">
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style TargetType="Image">
+            <Setter Property="Stretch" Value="Uniform"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
+    <ScrollViewer x:Name="PageScrollViewer">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+                <RowDefinition Height="75"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Style="{StaticResource BorderDefault}" Grid.Row="1" Grid.Column="1" MaxWidth="1300" Background="#FF2C2C2E">
+                <StackPanel Margin="15">
+                    <DockPanel>
+                        <Button x:Name="CloseButton" Cursor="Hand" Style="{StaticResource WindowButton}" VerticalAlignment="Top" Margin="5" Width="25" Height="25" HorizontalAlignment="Left" Click="CloseButton_Click">
+                            <Image Source="/Resources/close_black.png"/>
+                        </Button>
+                        <TextBlock FontWeight="SemiBold" FontSize="32" Text="Cправка" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" Foreground="White"/>
+                    </DockPanel>
+                    <FlowDocumentScrollViewer PreviewMouseWheel="FlowDocumentScrollViewer_PreviewMouseWheel" Background="#FF2C2C2E" Foreground="White">
+                        <FlowDocument FontFamily="Segoe UI" FontSize="16" IsHyphenationEnabled="True" IsOptimalParagraphEnabled="True">
+                            <Section>
+                                <Paragraph TextIndent="20" FontWeight="DemiBold" FontSize="20">
+                                    <Run Text="Начало работы"/>
+                                </Paragraph>
+                                <Paragraph TextIndent="20">
+                                    <Run Text="Конфигурация компонентов ПК производится автоматически при выборе одного из комплектующих и при выборе следующего будут отображены только совместимые комплектующие. Для начала работы с конфигуратором нажмите кнопку &quot;+ Добавить&quot; у любой ячейки комплектующего. "/>
+                                    <Floater>
+                                        <BlockUIContainer>
+                                            <Image MaxHeight="100" Source="/Resources/help_image1.png"/>
+                                        </BlockUIContainer>
+                                    </Floater>
+                                </Paragraph>
+                                <Paragraph TextIndent="20" FontWeight="DemiBold" FontSize="20">
+                                    <Run Text="Выбор комплектующих"/>
+                                </Paragraph>
+                                <Paragraph TextIndent="20">
+                                    <Run Text="При нажатии на кнопку &quot;+ Добавить&quot; в ячейке комплектующего раскроется список со всеми совместимыми комплектующими. Чтобы добавить комплектующее нажать кнопку &quot;Добавить&quot; у выбранного комплектующего. После этого комплектующее займет ячейку и будет отображаться в ней, а кнопка &quot;+ Добавить&quot; поменяется на кнопку &quot;- Убрать&quot;. "/>
+                                    <Floater>
+                                        <BlockUIContainer>
+                                            <Image MaxHeight="150" Source="/Resources/help_image2.png"/>
+                                        </BlockUIContainer>
+                                    </Floater>
+                                </Paragraph>
+                                <Paragraph TextIndent="20">
+                                    <Run Text="Для того чтобы убрать комплектующее из ячейки нажать на кнопку &quot;- Убрать&quot; и тогда ячейка освободится. "/>
+                                    <Floater>
+                                        <BlockUIContainer>
+                                            <Image MaxHeight="100" Source="/Resources/help_image3.png"/>
+                                        </BlockUIContainer>
+                                    </Floater>
+                                </Paragraph>
+                                <Paragraph TextIndent="20">
+                                    <Run Text="Выбрав материнскую плату, процессор и оперативную память, появится возможность выбрать количество модулей оперативной памяти, которое ограничено характеристиками выбранных комплектующих. Количество и тип хранилищ данных ограничивается характеристиками выбранных комплектующих и, наоборот, подбираемые комплектующие будут конфигурироваться под выбранные хранилища данных. "/>
+                                    <Floater>
+                                        <BlockUIContainer>
+                                            <Image MaxHeight="100" Source="/Resources/help_image4.png"/>
+                                        </BlockUIContainer>
+                                    </Floater>
+                                </Paragraph>
+                                <Paragraph TextIndent="20" FontWeight="DemiBold">
+                                    <Run Text="Внимание! Рекомендуется начинать конфигурацию сборки ПК по порядку, сверху вниз!"/>
+                                </Paragraph>
+                                <Paragraph TextIndent="20" FontWeight="DemiBold" FontSize="20">
+                                    <Run Text="Просмотр характеристик комплектующих"/>
+                                </Paragraph>
+                                <Paragraph TextIndent="20">
+                                    <Run Text="Для того чтобы просмотреть подробные характеристики комплектующего нужно нажать по его наименованию, после чего откроется страница со всеми его характеристиками и изображениями. Также если ячейка соответствующего комплектующего свободна будет доступна кнопка &quot;Добавить&quot;. "/>
+                                    <Floater>
+                                        <BlockUIContainer>
+                                            <Image MaxHeight="800" Source="/Resources/help_image5.png"/>
+                                        </BlockUIContainer>
+                                    </Floater>
+                                </Paragraph>
+                                <Paragraph TextIndent="20" FontWeight="DemiBold" FontSize="20">
+                                    <Run Text="Фильтр и сортировка комплектующих"/>
+                                </Paragraph>
+                                <Paragraph TextIndent="20">
+                                    <Run Text="Для упрощения поиска комплектующих доступны функции фильтрации и сортировки комплектующих. Для поиска по наименованию воспользуйтесь поисковой строкой, а для использования сортировки или различных фильтров используйте боковое меню с соответствующими функциями. "/>
+                                    <Floater>
+                                        <BlockUIContainer>
+                                            <Image MaxHeight="600" Source="/Resources/help_image6.png"/>
+                                        </BlockUIContainer>
+                                    </Floater>
+                                </Paragraph>
+                                <Paragraph TextIndent="20" FontWeight="DemiBold" FontSize="20">
+                                    <Run Text="Экспорт сборки ПК"/>
+                                </Paragraph>
+                                <Paragraph TextIndent="20">
+                                    <Run Text="Для экспорта сборки ПК в форматах DOCX, PDF и XLSX нажать на кнопку экспорт. После чего указать имя, путь и расширение файла. Ваша сборка ПК будет экспортирована в указанный файл."/>
+                                </Paragraph>
+                                <Paragraph TextIndent="20" FontWeight="DemiBold">
+                                    <Run Text="Внимание! Для работы экспорта на ПК должны быть установлены MS Word и MS Excel!"/>
+                                </Paragraph>
+                                <Paragraph TextIndent="20" FontWeight="DemiBold" FontSize="20">
+                                    <Run Text="Сохранение сборки ПК"/>
+                                </Paragraph>
+                                <Paragraph TextIndent="20">
+                                    <Run Text="Сборка ПК сохраняется автоматически при изменении. Также доступна функция создания, изменения наименования и удаления сборок ПК. "/>
+                                    <Floater>
+                                        <BlockUIContainer>
+                                            <Image Source="/Resources/help_image7.png" Height="75"/>
+                                        </BlockUIContainer>
+                                    </Floater>
+                                </Paragraph>
+                            </Section>
+                        </FlowDocument>
+                    </FlowDocumentScrollViewer>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </ScrollViewer>
+</Page>
